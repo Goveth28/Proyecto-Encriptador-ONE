@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Encriptador - Challenge Alura</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel = "stylesheet" href = "css/style.css">
+    </head>
+
+    <body>
+
+        <header>
+            <img src="images/logo_alura.png" id="logo">
+        </header>
+
+        <main>
+            <section>
+                <div class="sin_mensaje" id="sin_mensaje">
+                    <textarea disabled id="texto_encriptado"  required placeholder="Ingresa el texto que desees encriptar o desencriptar"></textarea>
+                    <img src="images/muñeco.png" id="muñeco">
+                    <p id="no_mensaje">Ningún mensaje fue <br>encontrado</p>
+                </div>
+                
+                <div class="con_mensaje" id="con_mensaje">
+                    <textarea disabled id="encriptacion"></textarea>
+                    <button id="copiar">Copiar</button>
+                </div>
+
+                <p id="recomendacion">! Solo letras minúsculas y sin acentos</p>
+                <textarea id="texto_a_encriptar" required placeholder="Ingresa el texto a encriptar o desencriptar"></textarea>
+            
+            </section>
+
+            <div class="botones">
+                <button id="encriptar" onclick='encriptar()'>Encriptar</button>
+                <button id="desencriptar" onclick='desencriptar()'>Desencriptar</button>
+            </div>
+            
+
+        </main>
+
+
+        <footer>
+            <p id="nombre">Luis Fernando Chitiva Arévalo</p>
+            <p id="celular">&#128241; 3005266509</p>
+            <p id="correo">&#9993; luisfer.god@gmail.com</p>
+            <a href="https://www.linkedin.com/in/luis-fernando-chitiva-arevalo/">Linkedin</a>
+        </footer>
+
+        <script>
+            
+            function verificar_texto(){
+                var texto = document.getElementById('texto_a_encriptar').value;
+                if (texto != ''){
+                    document.getElementById('sin_mensaje').style.display = "none";
+                    document.getElementById('con_mensaje').style.display = "contents";
+                    return true;
+                }
+                else{
+                    document.getElementById('sin_mensaje').style.display = "contents";
+                    document.getElementById('con_mensaje').style.display = "none";
+                    return false;
+                }
+            }
+
+            function encriptar(){
+                var se_puede = verificar_texto();
+                if (se_puede){
+                    var texto = document.getElementById('texto_a_encriptar').value;
+                    encriptacion = texto.replaceAll('e','enter');
+                    encriptacion = encriptacion.replaceAll('i','imes');
+                    encriptacion = encriptacion.replaceAll('a','ai');
+                    encriptacion = encriptacion.replaceAll('o','ober');
+                    encriptacion = encriptacion.replaceAll('u','ufat');
+                    document.getElementById('encriptacion').value = encriptacion;
+                }
+            }
+
+            function desencriptar(){
+                var se_puede = verificar_texto();
+                if (se_puede){
+                    var texto = document.getElementById('texto_a_encriptar').value;
+                    desencriptacion = texto.replaceAll('enter','e');
+                    desencriptacion = desencriptacion.replaceAll('imes','i');
+                    desencriptacion = desencriptacion.replaceAll('ai','a');
+                    desencriptacion = desencriptacion.replaceAll('ober','o');
+                    desencriptacion = desencriptacion.replaceAll('ufat','u');
+                    document.getElementById('encriptacion').value = desencriptacion;
+                }
+            }
+            
+            document.querySelector('#copiar').onclick = async()=>{
+                try{
+                    await navigator.clipboard.writeText(document.getElementById('encriptacion').value);
+                } catch (error){
+                    console.log(error)
+                }
+            }
+            
+        </script>
+    </body>
+</html>
