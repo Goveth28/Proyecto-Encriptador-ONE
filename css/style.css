@@ -287,3 +287,77 @@ footer a{
     }
 
 }
+
+@media screen and (max-width:375px){
+    #logo{
+        top: 3%;
+        left: -5%;
+        margin: 0%;
+        padding: 0%;
+    }
+
+    #texto_a_encriptar{
+        top: 15%;
+        width:90%;
+        height: 30%;
+        left: 8%;
+        
+    }
+
+    #muñeco{
+        display: none;
+    }
+
+    #recomendacion{
+        top: 50%;
+        left: 8%;
+    }
+
+    #no_mensaje{
+        top: 87%;
+        left: 30%;
+        font-size: 18px;
+    }
+
+    #texto_encriptado::placeholder{
+        font-family: "arial";
+        text-align: center;
+        padding: 25% 5% 5% 5%;
+    }
+
+    #texto_encriptado,#encriptacion{
+        width: 80%;
+        height: 20%;
+        left: 3%;
+        top: 70%;
+        mix-blend-mode:normal;
+        margin: 5% 0% 5% 5% ;
+    }
+
+    #copiar{
+        top: 90%;
+        left: 28%;
+        width: auto;
+        padding: 2% 15% 2% 15%;
+    }
+
+    .botones{
+        display:grid;
+        height: 5%;
+        width: 90%;
+        left: 5%;
+        right: 5%;
+        top: 52%;
+        padding: 5%;
+        margin: 0% 5% 5% 0%;
+    }
+
+    #encriptar,#desencriptar{
+        width: 100%;
+    }
+
+    footer{
+        display: none;
+    }
+
+}
